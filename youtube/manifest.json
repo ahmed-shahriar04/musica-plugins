@@ -1,0 +1,9 @@
+{
+  "id": "youtube",
+  "name": "YouTube",
+  "version": "1.0.0",
+  "author": "Musica Team",
+  "mainClass": "com.musica.plugin.youtube.YouTubePlugin",
+  "minAppVersion": "2.1.8",
+  "capabilities": ["search", "stream", "charts"]
+}
