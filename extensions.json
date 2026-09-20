@@ -9,8 +9,8 @@
       "version": "1.0.0",
       "description": "Stream audio from YouTube",
       "author": "Musica Team",
-      "icon": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/youtube/icon.png",
-      "downloadUrl": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/youtube/plugin.apk",
+      "icon": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/plugins/youtube/icon.png",
+      "downloadUrl": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/plugins/youtube/plugin.apk",
       "mainClass": "com.musica.plugin.youtube.YouTubePlugin",
       "capabilities": ["search", "stream", "charts"]
     },
@@ -20,6 +20,7 @@
       "type": "json",
       "version": "1.0.0",
       "description": "30-second previews from Apple iTunes",
+      "author": "Musica Team",
       "config": {
         "searchUrl": "https://itunes.apple.com/search?media=music&limit=25&term={query}",
         "resultPath": "results",
@@ -37,6 +38,7 @@
       "type": "json",
       "version": "1.0.0",
       "description": "30-second previews from Deezer",
+      "author": "Musica Team",
       "config": {
         "searchUrl": "https://api.deezer.com/search?q={query}",
         "resultPath": "data",
@@ -46,23 +48,6 @@
         "thumbnailField": "album.cover_medium",
         "durationField": "duration",
         "streamField": "preview"
-      }
-    },
-    {
-      "id": "jamendo",
-      "name": "Jamendo",
-      "type": "json",
-      "version": "1.0.0",
-      "description": "Free Creative Commons music from Jamendo",
-      "config": {
-        "searchUrl": "https://api.jamendo.com/v3.0/tracks/?client_id=YOUR_CLIENT_ID&format=json&limit=25&search={query}",
-        "resultPath": "results",
-        "idField": "id",
-        "titleField": "name",
-        "artistField": "artist_name",
-        "thumbnailField": "album_image",
-        "durationField": "duration",
-        "streamField": "audio"
       }
     }
   ]

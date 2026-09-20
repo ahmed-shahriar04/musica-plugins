@@ -1,0 +1,18 @@
+{
+  "id": "itunes",
+  "name": "iTunes",
+  "type": "json",
+  "version": "1.0.0",
+  "description": "30-second previews from Apple iTunes",
+  "author": "Musica Team",
+  "config": {
+    "searchUrl": "https://itunes.apple.com/search?media=music&limit=25&term={query}",
+    "resultPath": "results",
+    "idField": "trackId",
+    "titleField": "trackName",
+    "artistField": "artistName",
+    "thumbnailField": "artworkUrl100",
+    "durationField": "trackTimeMillis",
+    "streamField": "previewUrl"
+  }
+}
