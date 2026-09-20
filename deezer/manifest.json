@@ -1,0 +1,18 @@
+{
+  "id": "deezer",
+  "name": "Deezer",
+  "type": "json",
+  "version": "1.0.0",
+  "description": "30-second previews from Deezer",
+  "author": "Musica Team",
+  "config": {
+    "searchUrl": "https://api.deezer.com/search?q={query}",
+    "resultPath": "data",
+    "idField": "id",
+    "titleField": "title",
+    "artistField": "artist.name",
+    "thumbnailField": "album.cover_medium",
+    "durationField": "duration",
+    "streamField": "preview"
+  }
+}

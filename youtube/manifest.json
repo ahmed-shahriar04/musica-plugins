@@ -5,8 +5,5 @@
   "version": "1.0.0",
   "description": "Stream audio from YouTube",
   "author": "Musica Team",
-  "icon": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/plugins/youtube/icon.png",
-  "downloadUrl": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/plugins/youtube/plugin.apk",
-  "mainClass": "com.musica.plugin.youtube.YouTubePlugin",
   "capabilities": ["search", "stream", "charts"]
 }
