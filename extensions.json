@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-09-20",
+  "plugins": [
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "type": "apk",
+      "version": "1.0.0",
+      "description": "Stream audio from YouTube",
+      "author": "Musica Team",
+      "icon": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/youtube/icon.png",
+      "downloadUrl": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/youtube/plugin.apk",
+      "mainClass": "com.musica.plugin.youtube.YouTubePlugin",
+      "capabilities": ["search", "stream", "charts"]
+    },
+    {
+      "id": "itunes",
+      "name": "iTunes",
+      "type": "json",
+      "version": "1.0.0",
+      "description": "30-second previews from Apple iTunes",
+      "config": {
+        "searchUrl": "https://itunes.apple.com/search?media=music&limit=25&term={query}",
+        "resultPath": "results",
+        "idField": "trackId",
+        "titleField": "trackName",
+        "artistField": "artistName",
+        "thumbnailField": "artworkUrl100",
+        "durationField": "trackTimeMillis",
+        "streamField": "previewUrl"
+      }
+    },
+    {
+      "id": "deezer",
+      "name": "Deezer",
+      "type": "json",
+      "version": "1.0.0",
+      "description": "30-second previews from Deezer",
+      "config": {
+        "searchUrl": "https://api.deezer.com/search?q={query}",
+        "resultPath": "data",
+        "idField": "id",
+        "titleField": "title",
+        "artistField": "artist.name",
+        "thumbnailField": "album.cover_medium",
+        "durationField": "duration",
+        "streamField": "preview"
+      }
+    },
+    {
+      "id": "jamendo",
+      "name": "Jamendo",
+      "type": "json",
+      "version": "1.0.0",
+      "description": "Free Creative Commons music from Jamendo",
+      "config": {
+        "searchUrl": "https://api.jamendo.com/v3.0/tracks/?client_id=YOUR_CLIENT_ID&format=json&limit=25&search={query}",
+        "resultPath": "results",
+        "idField": "id",
+        "titleField": "name",
+        "artistField": "artist_name",
+        "thumbnailField": "album_image",
+        "durationField": "duration",
+        "streamField": "audio"
+      }
+    }
+  ]
+}
