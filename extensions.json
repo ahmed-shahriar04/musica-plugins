@@ -55,6 +55,35 @@
         "durationField": "duration",
         "streamField": "audio"
       }
+    },
+
+     {
+      "id": "lyrics-ovh",
+      "name": "lyrics.ovh",
+      "type": "lyrics_provider",
+      "version": "1.0.0",
+      "description": "Free lyrics from lyrics.ovh (plain text only)",
+      "author": "Musica Team",
+      "config": {
+        "lyricsSearchUrl": "https://api.lyrics.ovh/v1/{artist}/{title}",
+        "lyricsResultPath": "",
+        "syncedLyricsField": "",
+        "plainLyricsField": "lyrics"
+      }
+    },
+    {
+      "id": "lrclib-direct",
+      "name": "LRCLIB (Direct)",
+      "type": "lyrics_provider",
+      "version": "1.0.0",
+      "description": "Community-sourced synced lyrics",
+      "author": "Musica Team",
+      "config": {
+        "lyricsSearchUrl": "https://lrclib.net/api/get?track_name={title}&artist_name={artist}&duration={duration}",
+        "lyricsResultPath": "",
+        "syncedLyricsField": "syncedLyrics",
+        "plainLyricsField": "plainLyrics"
+      }
     }
   ]
 }

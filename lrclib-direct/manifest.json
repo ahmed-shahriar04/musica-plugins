@@ -1,0 +1,15 @@
+{
+  "id": "lrclib-direct",
+  "name": "LRCLIB (Direct)",
+  "type": "lyrics_provider",
+  "version": "1.0.0",
+  "description": "Community-sourced synced lyrics from LRCLIB",
+  "author": "Musica Team",
+  "icon": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/lrclib-direct/icon.png",
+  "config": {
+    "lyricsSearchUrl": "https://lrclib.net/api/get?track_name={title}&artist_name={artist}&duration={duration}",
+    "lyricsResultPath": "",
+    "syncedLyricsField": "syncedLyrics",
+    "plainLyricsField": "plainLyrics"
+  }
+}
