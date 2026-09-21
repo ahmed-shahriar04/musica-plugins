@@ -1,7 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
   "lastUpdated": "2026-09-21",
   "plugins": [
+    {
+      "id": "youtube",
+      "name": "YouTube Music",
+      "type": "youtube",
+      "version": "1.0.0",
+      "description": "Search and stream from YouTube Music. Requires working proxy instances.",
+      "author": "Musica Team",
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/youtube.png",
+      "config": {}
+    },
     {
       "id": "itunes",
       "name": "iTunes",
@@ -9,7 +19,7 @@
       "version": "1.0.0",
       "description": "Search music from Apple iTunes catalog",
       "author": "Musica Team",
-      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/ITunes_logo.svg/512px-ITunes_logo.svg.png",
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/itunes.png",
       "config": {
         "searchUrl": "https://itunes.apple.com/search?term={query}&media=music&limit=25",
         "resultPath": "results",
@@ -29,7 +39,7 @@
       "version": "1.0.0",
       "description": "Search music from Deezer",
       "author": "Musica Team",
-      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Deezer_logo_2019.svg/512px-Deezer_logo_2019.svg.png",
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/deezer.png",
       "config": {
         "searchUrl": "https://api.deezer.com/search?q={query}&limit=25",
         "resultPath": "data",
@@ -49,7 +59,7 @@
       "version": "1.0.0",
       "description": "Creative Commons music from Jamendo",
       "author": "Musica Team",
-      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Jamendo_logo.svg/512px-Jamendo_logo.svg.png",
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/jamendo.png",
       "config": {
         "searchUrl": "https://api.jamendo.com/v3.0/tracks/?client_id=56d30c95&format=json&limit=25&search={query}",
         "resultPath": "results",
@@ -62,13 +72,32 @@
         "chartsUrl": "https://api.jamendo.com/v3.0/tracks/?client_id=56d30c95&format=json&limit=25&order=popularity_total"
       }
     },
-
+    {
+      "id": "billboard",
+      "name": "Billboard Charts",
+      "type": "json",
+      "version": "1.0.0",
+      "description": "Billboard Hot 100 and other charts",
+      "author": "Musica Team",
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/billboard.png",
+      "config": {
+        "searchUrl": "https://itunes.apple.com/search?term={query}&media=music&limit=25",
+        "resultPath": "results",
+        "idField": "trackId",
+        "titleField": "trackName",
+        "artistField": "artistName",
+        "thumbnailField": "artworkUrl100",
+        "durationField": "trackTimeMillis",
+        "streamField": "previewUrl",
+        "chartsUrl": "https://itunes.apple.com/search?term=billboard+hot+100&media=music&limit=25"
+      }
+    },
     {
       "id": "lyrics-ovh",
       "name": "lyrics.ovh",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "Plain lyrics from lyrics.ovh — fast and reliable",
+      "description": "Plain lyrics from lyrics.ovh",
       "author": "Musica Team",
       "icon": null,
       "config": {
@@ -81,13 +110,13 @@
       }
     },
     {
-      "id": "lrclib-direct",
-      "name": "LRCLIB (Direct)",
+      "id": "lrcnet",
+      "name": "LRCNet (LRCLIB)",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "Synced + plain lyrics via LRCLIB exact-match API",
+      "description": "Synced + plain lyrics via LRCLIB",
       "author": "Musica Team",
-      "icon": null,
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/lrcnet.png",
       "config": {
         "lyricsSearchUrl": "https://lrclib.net/api/get?track_name={title}&artist_name={artist}&duration={duration}",
         "lyricsResultPath": "",
@@ -102,7 +131,7 @@
       "name": "LRCLIB (Search)",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "Synced + plain lyrics via LRCLIB search API (fuzzy match)",
+      "description": "Fuzzy lyrics search via LRCLIB",
       "author": "Musica Team",
       "icon": null,
       "config": {
@@ -115,86 +144,44 @@
       }
     },
     {
-  "id": "fma",
-  "name": "Free Music Archive",
-  "type": "json",
-  "description": "High-quality, legal audio downloads directed by WFMU",
-  "icon": "https://freemusicarchive.org",
-  "config": {
-    "searchUrl": "https://freemusicarchive.org{query}",
-    "resultPath": "dataset",
-    "idField": "track_id",
-    "titleField": "track_title",
-    "artistField": "artist_name",
-    "thumbnailField": "track_image_file",
-    "durationField": "track_duration",
-    "streamField": "track_url",
-    "chartsUrl": "https://freemusicarchive.org"
-  }
-},
-{
-  "id": "soundcloud",
-  "name": "SoundCloud",
-  "type": "json",
-  "description": "Discover and stream a constantly expanding mix of music",
-  "icon": "https://soundcloud.com",
-  "config": {
-    "searchUrl": "https://soundcloud.com{query}&limit=25&license=cc-by-sa",
-    "resultPath": "",
-    "idField": "id",
-    "titleField": "title",
-    "artistField": "user.username",
-    "thumbnailField": "artwork_url",
-    "durationField": "duration",
-    "streamField": "stream_url",
-    "chartsUrl": "https://soundcloud.com"
-  }
-},
-{
-  "id": "ccmixter",
-  "name": "ccMixter",
-  "type": "json",
-  "description": "Creative Commons music community for remixes and samples",
-  "icon": "http://ccmixter.org",
-  "config": {
-    "searchUrl": "http://ccmixter.org{query}&limit=25",
-    "resultPath": "",
-    "idField": "id",
-    "titleField": "upload_name",
-    "artistField": "user_real_name",
-    "thumbnailField": "file_banner",
-    "durationField": "media_properties.duration",
-    "streamField": "files.download_url",
-    "chartsUrl": "http://ccmixter.org"
-  }
-},
-{
-  "id": "audiomack",
-  "name": "Audiomack",
-  "type": "json",
-  "description": "Free music streaming and discovery platform",
-  "icon": "https://audiomack.com",
-  "config": {
-    "searchUrl": "https://audiomack.com{query}&limit=25",
-    "resultPath": "results.music",
-    "idField": "id",
-    "titleField": "title",
-    "artistField": "artist",
-    "thumbnailField": "image",
-    "durationField": "duration",
-    "streamField": "streaming_url",
-    "chartsUrl": "https://audiomack.com"
-  }
-},
-{
-  "id": "youtube",
-  "name": "YouTube Music",
-  "type": "youtube",
-  "version": "1.0.0",
-  "description": "Search and stream from YouTube. May not work in all regions.",
-  "author": "Musica Team",
-  "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/youtube.png",
-  "config": {}
-}
+      "id": "musicbrainz-suggestions",
+      "name": "MusicBrainz Suggestions",
+      "type": "json",
+      "version": "1.0.0",
+      "description": "Search suggestions powered by MusicBrainz API",
+      "author": "Musica Team",
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/musicbrainz.png",
+      "config": {
+        "searchUrl": "https://musicbrainz.org/ws/2/recording/?query={query}&fmt=json&limit=25",
+        "resultPath": "recordings",
+        "idField": "id",
+        "titleField": "title",
+        "artistField": "artist-credit.0.name",
+        "thumbnailField": "",
+        "durationField": "length",
+        "streamField": "",
+        "chartsUrl": ""
+      }
+    },
+    {
+      "id": "itunes-search-suggestions",
+      "name": "iTunes Suggestions",
+      "type": "json",
+      "version": "1.0.0",
+      "description": "Fast search suggestions from iTunes Search API",
+      "author": "Musica Team",
+      "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/itunes.png",
+      "config": {
+        "searchUrl": "https://itunes.apple.com/search?term={query}&media=music&limit=15",
+        "resultPath": "results",
+        "idField": "trackId",
+        "titleField": "trackName",
+        "artistField": "artistName",
+        "thumbnailField": "artworkUrl100",
+        "durationField": "trackTimeMillis",
+        "streamField": "previewUrl",
+        "chartsUrl": ""
+      }
+    }
   ]
 }
