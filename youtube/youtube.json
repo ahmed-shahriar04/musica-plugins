@@ -1,0 +1,10 @@
+{
+  "id": "youtube",
+  "name": "YouTube Music",
+  "type": "youtube",
+  "version": "1.0.0",
+  "description": "Search and stream from YouTube. May not work in all regions.",
+  "author": "Musica Team",
+  "icon": "https://cdn.jsdelivr.net/gh/ahmed-shahriar04/musica-plugins@main/icons/youtube.png",
+  "config": {}
+}

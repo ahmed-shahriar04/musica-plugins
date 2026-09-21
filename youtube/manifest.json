@@ -1,9 +1,0 @@
-{
-  "id": "youtube",
-  "name": "YouTube",
-  "type": "apk",
-  "version": "1.0.0",
-  "description": "Stream audio from YouTube",
-  "author": "Musica Team",
-  "capabilities": ["search", "stream", "charts"]
-}
