@@ -57,12 +57,12 @@
       }
     },
 
-     {
+         {
       "id": "lyrics-ovh",
       "name": "lyrics.ovh",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "Free lyrics from lyrics.ovh (plain text only)",
+      "description": "Free plain-text lyrics from lyrics.ovh",
       "author": "Musica Team",
       "config": {
         "lyricsSearchUrl": "https://api.lyrics.ovh/v1/{artist}/{title}",
@@ -76,13 +76,41 @@
       "name": "LRCLIB (Direct)",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "Community-sourced synced lyrics",
+      "description": "Community-sourced synced lyrics from LRCLIB",
       "author": "Musica Team",
       "config": {
         "lyricsSearchUrl": "https://lrclib.net/api/get?track_name={title}&artist_name={artist}&duration={duration}",
         "lyricsResultPath": "",
         "syncedLyricsField": "syncedLyrics",
         "plainLyricsField": "plainLyrics"
+      }
+    },
+    {
+      "id": "lrclib-search",
+      "name": "LRCLIB (Search)",
+      "type": "lyrics_provider",
+      "version": "1.0.0",
+      "description": "LRCLIB search endpoint — better for loosely-matched tracks",
+      "author": "Musica Team",
+      "config": {
+        "lyricsSearchUrl": "https://lrclib.net/api/search?q={title}%20{artist}",
+        "lyricsResultPath": "0",
+        "syncedLyricsField": "syncedLyrics",
+        "plainLyricsField": "plainLyrics"
+      }
+    },
+    {
+      "id": "tekstowo",
+      "name": "Tekstowo (PL)",
+      "type": "lyrics_provider",
+      "version": "1.0.0",
+      "description": "Polish lyrics site with English translations",
+      "author": "Musica Team",
+      "config": {
+        "lyricsSearchUrl": "https://www.tekstowo.pl/szukaj,{title}%20{artist}.html",
+        "lyricsResultPath": "",
+        "syncedLyricsField": "",
+        "plainLyricsField": "lyrics"
       }
     }
   ]

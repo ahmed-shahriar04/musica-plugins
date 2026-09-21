@@ -1,15 +1,14 @@
 {
-  "id": "lyrics-ovh",
-  "name": "lyrics.ovh",
-  "type": "lyrics_provider",
-  "version": "1.0.0",
-  "description": "Free lyrics from lyrics.ovh (plain text only)",
-  "author": "Musica Team",
-  "icon": "https://raw.githubusercontent.com/ahmed-shahriar04/musica-plugins/main/lyrics-ovh/icon.png",
-  "config": {
-    "lyricsSearchUrl": "https://api.lyrics.ovh/v1/{artist}/{title}",
-    "lyricsResultPath": "",
-    "syncedLyricsField": "",
-    "plainLyricsField": "lyrics"
-  }
-}
+      "id": "lyrics-ovh",
+      "name": "lyrics.ovh",
+      "type": "lyrics_provider",
+      "version": "1.0.0",
+      "description": "Free plain-text lyrics from lyrics.ovh",
+      "author": "Musica Team",
+      "config": {
+        "lyricsSearchUrl": "https://api.lyrics.ovh/v1/{artist}/{title}",
+        "lyricsResultPath": "",
+        "syncedLyricsField": "",
+        "plainLyricsField": "lyrics"
+      }
+    }
