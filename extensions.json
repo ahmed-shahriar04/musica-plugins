@@ -1,23 +1,25 @@
 {
   "version": 1,
-  "lastUpdated": "2026-09-20",
+  "lastUpdated": "2026-09-21",
   "plugins": [
     {
       "id": "itunes",
       "name": "iTunes",
       "type": "json",
       "version": "1.0.0",
-      "description": "30-second previews from Apple iTunes",
+      "description": "Search music from Apple iTunes catalog",
       "author": "Musica Team",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/ITunes_logo.svg/512px-ITunes_logo.svg.png",
       "config": {
-        "searchUrl": "https://itunes.apple.com/search?media=music&limit=25&term={query}",
+        "searchUrl": "https://itunes.apple.com/search?term={query}&media=music&limit=25",
         "resultPath": "results",
         "idField": "trackId",
         "titleField": "trackName",
         "artistField": "artistName",
         "thumbnailField": "artworkUrl100",
         "durationField": "trackTimeMillis",
-        "streamField": "previewUrl"
+        "streamField": "previewUrl",
+        "chartsUrl": "https://itunes.apple.com/search?term=top+hits&media=music&limit=25"
       }
     },
     {
@@ -25,17 +27,19 @@
       "name": "Deezer",
       "type": "json",
       "version": "1.0.0",
-      "description": "30-second previews from Deezer",
+      "description": "Search music from Deezer",
       "author": "Musica Team",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Deezer_logo_2019.svg/512px-Deezer_logo_2019.svg.png",
       "config": {
-        "searchUrl": "https://api.deezer.com/search?q={query}",
+        "searchUrl": "https://api.deezer.com/search?q={query}&limit=25",
         "resultPath": "data",
         "idField": "id",
         "titleField": "title",
         "artistField": "artist.name",
         "thumbnailField": "album.cover_medium",
         "durationField": "duration",
-        "streamField": "preview"
+        "streamField": "preview",
+        "chartsUrl": "https://api.deezer.com/chart/0/tracks?limit=25"
       }
     },
     {
@@ -43,32 +47,37 @@
       "name": "Jamendo",
       "type": "json",
       "version": "1.0.0",
-      "description": "Free Creative Commons music from Jamendo",
+      "description": "Creative Commons music from Jamendo",
       "author": "Musica Team",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Jamendo_logo.svg/512px-Jamendo_logo.svg.png",
       "config": {
-        "searchUrl": "https://api.jamendo.com/v3.0/tracks/?client_id=YOUR_CLIENT_ID&format=json&limit=25&search={query}",
+        "searchUrl": "https://api.jamendo.com/v3.0/tracks/?client_id=56d30c95&format=json&limit=25&search={query}",
         "resultPath": "results",
         "idField": "id",
         "titleField": "name",
         "artistField": "artist_name",
-        "thumbnailField": "album_image",
+        "thumbnailField": "image",
         "durationField": "duration",
-        "streamField": "audio"
+        "streamField": "audio",
+        "chartsUrl": "https://api.jamendo.com/v3.0/tracks/?client_id=56d30c95&format=json&limit=25&order=popularity_total"
       }
     },
 
-         {
+    {
       "id": "lyrics-ovh",
       "name": "lyrics.ovh",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "Free plain-text lyrics from lyrics.ovh",
+      "description": "Plain lyrics from lyrics.ovh — fast and reliable",
       "author": "Musica Team",
+      "icon": null,
       "config": {
         "lyricsSearchUrl": "https://api.lyrics.ovh/v1/{artist}/{title}",
         "lyricsResultPath": "",
         "syncedLyricsField": "",
-        "plainLyricsField": "lyrics"
+        "plainLyricsField": "lyrics",
+        "lyricsTrackNameField": "",
+        "lyricsArtistNameField": ""
       }
     },
     {
@@ -76,13 +85,16 @@
       "name": "LRCLIB (Direct)",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "Community-sourced synced lyrics from LRCLIB",
+      "description": "Synced + plain lyrics via LRCLIB exact-match API",
       "author": "Musica Team",
+      "icon": null,
       "config": {
         "lyricsSearchUrl": "https://lrclib.net/api/get?track_name={title}&artist_name={artist}&duration={duration}",
         "lyricsResultPath": "",
         "syncedLyricsField": "syncedLyrics",
-        "plainLyricsField": "plainLyrics"
+        "plainLyricsField": "plainLyrics",
+        "lyricsTrackNameField": "",
+        "lyricsArtistNameField": ""
       }
     },
     {
@@ -90,28 +102,89 @@
       "name": "LRCLIB (Search)",
       "type": "lyrics_provider",
       "version": "1.0.0",
-      "description": "LRCLIB search endpoint — better for loosely-matched tracks",
+      "description": "Synced + plain lyrics via LRCLIB search API (fuzzy match)",
       "author": "Musica Team",
+      "icon": null,
       "config": {
         "lyricsSearchUrl": "https://lrclib.net/api/search?q={title}%20{artist}",
         "lyricsResultPath": "0",
         "syncedLyricsField": "syncedLyrics",
-        "plainLyricsField": "plainLyrics"
+        "plainLyricsField": "plainLyrics",
+        "lyricsTrackNameField": "",
+        "lyricsArtistNameField": ""
       }
     },
     {
-      "id": "tekstowo",
-      "name": "Tekstowo (PL)",
-      "type": "lyrics_provider",
-      "version": "1.0.0",
-      "description": "Polish lyrics site with English translations",
-      "author": "Musica Team",
-      "config": {
-        "lyricsSearchUrl": "https://www.tekstowo.pl/szukaj,{title}%20{artist}.html",
-        "lyricsResultPath": "",
-        "syncedLyricsField": "",
-        "plainLyricsField": "lyrics"
-      }
-    }
+  "id": "fma",
+  "name": "Free Music Archive",
+  "type": "json",
+  "description": "High-quality, legal audio downloads directed by WFMU",
+  "icon": "https://freemusicarchive.org",
+  "config": {
+    "searchUrl": "https://freemusicarchive.org{query}",
+    "resultPath": "dataset",
+    "idField": "track_id",
+    "titleField": "track_title",
+    "artistField": "artist_name",
+    "thumbnailField": "track_image_file",
+    "durationField": "track_duration",
+    "streamField": "track_url",
+    "chartsUrl": "https://freemusicarchive.org"
+  }
+},
+{
+  "id": "soundcloud",
+  "name": "SoundCloud",
+  "type": "json",
+  "description": "Discover and stream a constantly expanding mix of music",
+  "icon": "https://soundcloud.com",
+  "config": {
+    "searchUrl": "https://soundcloud.com{query}&limit=25&license=cc-by-sa",
+    "resultPath": "",
+    "idField": "id",
+    "titleField": "title",
+    "artistField": "user.username",
+    "thumbnailField": "artwork_url",
+    "durationField": "duration",
+    "streamField": "stream_url",
+    "chartsUrl": "https://soundcloud.com"
+  }
+},
+{
+  "id": "ccmixter",
+  "name": "ccMixter",
+  "type": "json",
+  "description": "Creative Commons music community for remixes and samples",
+  "icon": "http://ccmixter.org",
+  "config": {
+    "searchUrl": "http://ccmixter.org{query}&limit=25",
+    "resultPath": "",
+    "idField": "id",
+    "titleField": "upload_name",
+    "artistField": "user_real_name",
+    "thumbnailField": "file_banner",
+    "durationField": "media_properties.duration",
+    "streamField": "files.download_url",
+    "chartsUrl": "http://ccmixter.org"
+  }
+},
+{
+  "id": "audiomack",
+  "name": "Audiomack",
+  "type": "json",
+  "description": "Free music streaming and discovery platform",
+  "icon": "https://audiomack.com",
+  "config": {
+    "searchUrl": "https://audiomack.com{query}&limit=25",
+    "resultPath": "results.music",
+    "idField": "id",
+    "titleField": "title",
+    "artistField": "artist",
+    "thumbnailField": "image",
+    "durationField": "duration",
+    "streamField": "streaming_url",
+    "chartsUrl": "https://audiomack.com"
+  }
+}
   ]
 }
